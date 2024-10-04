@@ -6,7 +6,7 @@ import sublime_plugin
 import subprocess
 import os
 
-class SublimeSublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
+class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Save the current file
         self.view.run_command('save')
