@@ -6,7 +6,7 @@ import sublime_plugin
 import subprocess
 import os
 
-class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
+class SublimeSublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Save the current file
         self.view.run_command('save')
@@ -48,10 +48,10 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
             return None
 
     def load_last_commit_message(self):
-        settings = sublime.load_settings("GitAutoCommit.sublime-settings")
+        settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         return settings.get("last_commit_message", "")
 
     def save_last_commit_message(self, commit_message):
-        settings = sublime.load_settings("GitAutoCommit.sublime-settings")
+        settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         settings.set("last_commit_message", commit_message)
-        sublime.save_settings("GitAutoCommit.sublime-settings")
+        sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
