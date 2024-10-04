@@ -1,4 +1,5 @@
 # sublime script for auto commit when save the file
+# This file is generated with ChatGPT :)
 
 import sublime
 import sublime_plugin
