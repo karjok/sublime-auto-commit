@@ -5,6 +5,15 @@ A script to auto popup a form for input commit message on sublime text when save
 # Install
  - Clone this repo
  - Open Sublime Text
- - Goto Preferences > Browse Packages
+ - Goto `Preferences > Browse Packages`
  - Once Packages folder opened, copy `sublime_auto_git_commit.py` into `User` folder
- - Then restart the Sublime
+ - Then set the Key Bindings on `Preferences > Key Bindings`
+ - On right tab, paste these config:
+   ```json
+    [
+        {
+            "keys": ["ctrl+s"], "command": "auto_commit_prompt"
+        }
+    ]
+   ```
+ - Save then restart the Sublime
