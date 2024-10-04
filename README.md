@@ -24,3 +24,7 @@ A script to auto popup a form for input commit message on sublime text when save
 ## How to use the plugin
 
 Just press `CTRL + S` if you want to show the prompt of input the commit message. Ignore it if you wont commit any message. Press `SHIFT + Enter` or `CTRL + Enter` for new line, and `ENTER` if you want to save the commit message
+
+## The screenshot
+
+![image](https://github.com/user-attachments/assets/3e1664a9-75b0-43f6-845a-26c438215022)
