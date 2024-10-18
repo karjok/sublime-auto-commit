@@ -14,6 +14,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Save the current file
         self.view.run_command('save')
+        self.generate_commit_message_for()
 
         # Load the last commit message
         last_commit_message = self.load_last_commit_message()
@@ -60,5 +61,5 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         settings.set("last_commit_message", commit_message)
         sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
     def generate_commit_message_for(self):
-        script_path = os.path.join(sublime.package_path(), "SGAC_AI.py"
+        script_path = os.path.join(sublime.packages_path(), "SGAC_AI.py")
         print(script_path)
