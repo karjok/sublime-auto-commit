@@ -5,6 +5,10 @@ import sublime
 import sublime_plugin
 import subprocess
 import os
+import re
+
+# Put the groq token here
+
 
 class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -20,7 +24,9 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def on_done(self, commit_message):
         if commit_message:
             file_path = self.view.file_name()
+            print(file_path)
             file_dir = os.path.dirname(file_path)
+            print(file_dir)
             project_root = self.get_project_root(file_dir)
             if project_root:
                 # Run git add command
@@ -55,3 +61,4 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         settings.set("last_commit_message", commit_message)
         sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
+
