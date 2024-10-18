@@ -1,6 +1,8 @@
-# SUBLIME AUTO COMMIT
+# SUBLIME TEXT AUTO COMMIT
 
-A script to auto popup a form for input commit message on sublime text when save a file.
+Simple Extension for Sublime Text to Automatically Generate and Commit Changes
+
+This script automatically triggers a pop-up form for entering a commit message whenever you save a file in Sublime Text. The commit message input prompt displays an AI-generated message by default, summarizing the changes made to the file. You can easily edit this default message to better reflect your intended commit, streamlining your version control process directly from the text editor.
 
 > **Note:** The plugin only work on file inside the folder with `.git` folder in it. If not, an error popup will appear
 
@@ -10,16 +12,19 @@ A script to auto popup a form for input commit message on sublime text when save
 - `groq` module installed
   > `pip install groq`
 - Groq AI API Key
-  You can generate the API KEY here: ![https://console.groq.com/keys](https://console.groq.com/keys)
+You can generate the API KEY here: [https://console.groq.com/keys](https://console.groq.com/keys)
 
 ## Installing the pluggin
- - Clone this repo
- - Edit file `GROQ_API_KEY.txt` then put your Groq api key and save
+ - Clone this repository.
+ - Edit the `GROQ_API_KEY.txt` file to include your Groq API key, then save the changes.
  - Open Sublime Text
- - Goto `Preferences > Browse Packages`
- - Once Packages folder opened, copy `sublime_git_auto_commit.py`, `SGAC_AI.py`, and `GROQ_API_KEY.txt` files into `User` folder
- - Then set the Key Bindings on `Preferences > Key Bindings`
- - On right tab, paste these config:
+ - Navigate to `Preferences > Browse Packages`
+ - Once the Packages folder is open, copy the following files into the `User` folder:
+   - `sublime_git_auto_commit.py`
+   - `SGAC_AI.py`
+   - `GROQ_API_KEY.txt`
+ - Set the key bindings by going to `Preferences > Key Bindings`.
+ - On right tab, paste following configuration:
    ```json
     [
         {
@@ -27,11 +32,14 @@ A script to auto popup a form for input commit message on sublime text when save
         }
     ]
    ```
- - Save then restart the Sublime
+ - Save the changes and restart the Sublime Text
 
 ## How to use the plugin
+- Press `CTRL + S` to save the changed file and trigger the commit message input prompt.
+- When the prompt appears, the generated AI commit message will be automatically loaded into the input prompt.
+- If the default message is sufficient, press `Enter` to commit the change with the AI-generated commit message.
+- If you do not need to commit any changes, simply leave the prompt or press `ESC` to close it.
 
-Just press `CTRL + S` if you want to show the prompt of input the commit message. Ignore it if you wont commit any message. Press `SHIFT + Enter` or `CTRL + Enter` for new line, and `ENTER` if you want to save the commit message
 
 ## The screenshot
 
