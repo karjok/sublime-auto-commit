@@ -43,4 +43,4 @@ You can generate the API KEY here: [https://console.groq.com/keys](https://conso
 
 ## The screenshot
 
-![image](https://github.com/user-attachments/assets/3e1664a9-75b0-43f6-845a-26c438215022)
+![image](https://github.com/user-attachments/assets/bd419c1e-094e-4dc5-95f7-4a110f2ded27)
