@@ -65,5 +65,6 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         file_dir = os.path.dirname(file_path)
         diff = subprocess.run(["git", "diff", "--", file_path], cwd=file_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         script_path = os.path.join(sublime.packages_path(), "SGAC_AI.py")
-        commit_message = subprocess.run(["python3", script_path, file_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        script_dir = os.path.dirname(script_path)
+        commit_message = subprocess.run(["python3", script_path, file_path], cwd=script_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         print(commit_message)
