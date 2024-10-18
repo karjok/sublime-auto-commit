@@ -3,7 +3,6 @@ import sys
 import os
 import subprocess
 from groq import Groq
-API_KEY = "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"
 
 PROMPT = """
 Summarize the given diff and Generate infomative commit message for following git diff with maximum 50 characters for TITLE and maximum 70 characters for DESCRIPTION:
@@ -31,7 +30,7 @@ DO NOT ANSWER WITH OTHER WORDS, JUST ANSWER WITH THE FINAL MESSAGE FORMAT ONLY
 """
 
 
-def generate_commit_message_for(diff):
+def generate_commit_message_for(API_KEY,diff):
     prompt = PROMPT % diff
     client = Groq(
         api_key= API_KEY,
@@ -58,8 +57,9 @@ def generate_commit_message_for(diff):
     
 def commit_message_from_AI(file_path):
     file_dir = os.path.dirname(file_path)
+    API_KEY = open(os.path.join(file_dir, "GROQ_API_KEY.txt"), "r").read()
     diff = subprocess.run(["git", "diff", "--", file_path], cwd=file_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    title, commit_message = generate_commit_message_for(diff)
+    title, commit_message = generate_commit_message_for(API_KEY, diff)
     print(title)
     print(commit_message)
 
