@@ -62,4 +62,3 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         settings.set("last_commit_message", commit_message)
         sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
-
