@@ -16,7 +16,8 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         self.view.run_command('save')
 
         # Load the last commit message
-        last_commit_message = self.load_last_commit_message()
+        # last_commit_message = self.load_last_commit_message()
+        last_commit_message = generate_commit_message_for()
 
         # Prompt for commit message with last commit message as the default text
         self.view.window().show_input_panel("Commit Message:", last_commit_message, self.on_done, None, None)
@@ -59,6 +60,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         settings.set("last_commit_message", commit_message)
         sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
+        
     def generate_commit_message_for(self):
         file_path = self.view.file_name()
         file_dir = os.path.dirname(file_path)
@@ -66,5 +68,4 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         script_path = os.path.join(sublime.packages_path(), "User", "SGAC_AI.py")
         script_dir = os.path.dirname(script_path)
         commit_message = subprocess.run(["python3", script_path, file_path], cwd=script_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        print(commit_message)
-        print("===========================================")
+        return commit_message
