@@ -16,7 +16,7 @@ You can generate the API KEY here: [https://console.groq.com/keys](https://conso
 
 ## Installing the pluggin
  - Clone this repository.
- - Edit the `GROQ_API_KEY.txt` file to include your Groq API key, then save the changes.
+ - Create and Edit `GROQ_API_KEY.txt` file to include your Groq API key, then save the changes.
  - Open Sublime Text
  - Navigate to `Preferences > Browse Packages`
  - Once the Packages folder is open, copy the following files into the `User` folder:
