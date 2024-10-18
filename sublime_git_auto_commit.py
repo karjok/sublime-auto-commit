@@ -67,4 +67,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         script_path = os.path.join(sublime.packages_path(), "User", "SGAC_AI.py")
         script_dir = os.path.dirname(script_path)
         commit_message = subprocess.run(["python3", script_path, file_path], cwd=script_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if commit_message.returncode != 0:
+            sublime.error_message(f"Groq AI failed: {commit_message.stderr}")
+        
         return commit_message.stdout
