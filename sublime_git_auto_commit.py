@@ -24,7 +24,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def on_done(self, commit_message):
         if commit_message:
             file_path = self.view.file_name()
-            print(os.getcwd())
+            print(sublime.packages_path())
             print(file_path)
             file_dir = os.path.dirname(file_path)
             print(file_dir)
