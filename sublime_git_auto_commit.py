@@ -24,10 +24,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
     def on_done(self, commit_message):
         if commit_message:
             file_path = self.view.file_name()
-            print(sublime.packages_path())
-            print(file_path)
             file_dir = os.path.dirname(file_path)
-            print(file_dir)
             project_root = self.get_project_root(file_dir)
             if project_root:
                 # Run git add command
@@ -62,3 +59,6 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("SublimeGitAutoCommit.sublime-settings")
         settings.set("last_commit_message", commit_message)
         sublime.save_settings("SublimeGitAutoCommit.sublime-settings")
+    def generate_commit_message_for(self):
+        script_path = os.path.join(sublime.package_path(), "SGAC_AI.py"
+        print(script_path)
