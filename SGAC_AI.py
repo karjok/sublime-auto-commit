@@ -1,3 +1,5 @@
+# A Commit Message generator
+# Powered by Groq AI
 import re
 import sys
 import os
