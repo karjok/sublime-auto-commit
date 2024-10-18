@@ -67,3 +67,4 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         script_dir = os.path.dirname(script_path)
         commit_message = subprocess.run(["python3", script_path, file_path], cwd=script_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         print(commit_message.stdout)
+        
