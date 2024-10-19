@@ -1,5 +1,6 @@
 # A Commit Message generator
 # Powered by Groq AI
+# karjok Pangesty
 import re
 import sys
 import os
