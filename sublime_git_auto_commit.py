@@ -14,8 +14,7 @@ class SublimeGitAutoCommitCommand(sublime_plugin.TextCommand):
         # Save the current file
         self.view.run_command('save')
 
-        # Load the last commit message
-        # last_commit_message = self.load_last_commit_message()
+        # Generating Commit Message using AI
         last_commit_message = self.generate_commit_message_for()
 
         # Prompt for commit message with last commit message as the default text
