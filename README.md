@@ -32,6 +32,7 @@ You can generate the API KEY here: [https://console.groq.com/keys](https://conso
         }
     ]
    ```
+   > Note: The `ctrl+s` key is just a suggestion and can be changed based on your preference. Please edit the key if you don't want to commit changes every time you save the file.
  - Save the changes and restart the Sublime Text
 
 ## How to use the plugin
