@@ -58,16 +58,17 @@ def generate_commit_message_for(API_KEY,diff):
     except:
         return "[ERROR] Error when gerating commit message", response
     
-def commit_message_from_AI(file_path):
-    file_dir = os.path.dirname(file_path)
-    API_KEY = open(os.path.join(file_dir, "GROQ_API_KEY.txt"), "r").read()
-    diff = subprocess.run(["git", "diff", "--", file_path], cwd=file_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+def commit_message_from_AI(file_path, script_path):
+    script_dir = os.path.dirname(script_path)
+    API_KEY = open(os.path.join(script_dir, "GROQ_API_KEY.txt"), "r").read()
+    diff = subprocess.run(["git", "diff", "--", file_path], cwd=os.path.dirname(file_path), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     title, commit_message = generate_commit_message_for(API_KEY, diff)
     print(title)
     print(commit_message)
 
 if __name__ == "__main__":
     file_path = sys.argv[1]
-    commit_message_from_AI(file_path)
+    script_path = sys.argv[2]
+    commit_message_from_AI(file_path, script_path)
 
     
